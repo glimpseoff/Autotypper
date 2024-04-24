@@ -20,9 +20,13 @@ class HotkeyListener(QThread):
         with keyboard.GlobalHotKeys({self.hotkey_start: self.on_activate,self.hotkey_stop: self.stop}) as h:
             h.join()
 
-if __name__ == '__main__':
+def main():
     hotkey_start = input('Enter the hotkey_start: ')
     hotkey_stop = input('Enter the hotkey_stop: ')
     text = input('Enter the text to type: ')
+    
     listener = HotkeyListener(hotkey_start,hotkey_stop, text)
     listener.run()
+
+if __name__ == '__main__':
+    main()
